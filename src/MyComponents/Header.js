@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export default function Header({title = "Your Title", searchBar}) {
+export default function Header({title = "Your Title", searchBar = true}) {
   // Using destructuring to extract title and searchBar props
   return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
