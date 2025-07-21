@@ -5,13 +5,19 @@ import Footer from './MyComponents/Footer';
 import { useState, useEffect } from 'react';
 import { AddTodo } from './MyComponents/AddTodo';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
 function App() {
 
   // Initialize todos from localStorage or set to an empty array
   let initTodos;
-  if(localStorage.getItem('todos') === null) {
+  if (localStorage.getItem('todos') === null) {
     initTodos = [];
-  } else{
+  } else {
     initTodos = JSON.parse(localStorage.getItem('todos'));
   }
 
@@ -50,23 +56,29 @@ function App() {
 
   // Render the main application
   return (
-    <>
+    <Router>
       <Header title='My Todo List' searchBar={false} />
-
-      <div className="container">
-      <div className="row">
-        <div className="col">
-          <Todos todos={todos} onDelete={onDelete} />
-        </div>
-
-        <div className="col">
-          <AddTodo addTodo={addTodo} />
-        </div>
-      </div>
-    </div>
-
+      <Switch>
+        <Route exact path="/" render={() => {
+          return (
+            <div className="container">
+              <div className="row">
+                {/* Todos Column */}
+                <div className="col">
+                  <Todos todos={todos} onDelete={onDelete} />
+                </div>
+                {/* AddTodo Column */}
+                <div className="col">
+                  <AddTodo addTodo={addTodo} />
+                </div>
+              </div>
+            </div>
+          )
+        }}>
+        </Route>
+      </Switch>
       <Footer />
-    </>
+    </Router>
   );
 }
 
