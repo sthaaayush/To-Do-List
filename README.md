@@ -11,6 +11,10 @@ This is my first React project, developed as part of my project-based learning j
 - **Performance Optimized:** Fast execution and low resource usage.
 - **Cross-Platform:** Works on major operating systems.
 
+## Live Preview
+
+You can preview the project here: [https://frp-todo.netlify.app/](https://frp-todo.netlify.app/)
+
 ## Installation Guide
 
 1. **Clone the Repository**
@@ -23,8 +27,10 @@ This is my first React project, developed as part of my project-based learning j
     ```sh
     # Using npm (for Node.js projects)
     npm install
+    ```
 
 3. **Run the Project**
     ```sh
     # Example for Node.js
     npm start
+    ```
