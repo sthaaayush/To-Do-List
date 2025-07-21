@@ -5,6 +5,7 @@ export default function Header({title = "Your Title", searchBar = true}) {
   return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
+            {/* Using Destructuring for title and searchBar */}
           <a className="navbar-brand" href="#">{title}</a>
           <button
             className="navbar-toggler"
@@ -30,7 +31,7 @@ export default function Header({title = "Your Title", searchBar = true}) {
                 </a>
               </li>
             </ul>
-
+            {/* Conditional rendering of the search bar based on the searchBar prop */}
             {searchBar ? <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
@@ -49,5 +50,6 @@ export default function Header({title = "Your Title", searchBar = true}) {
 }
 
 Header.propTypes = {
-    title : PropTypes.string
+    title : PropTypes.string, // Ensuring title is a string
+    searchBar: PropTypes.bool.isRequired // Ensuring searchBar is a boolean and is required
 }
