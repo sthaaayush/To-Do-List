@@ -24,10 +24,6 @@ This is my first React project, developed as part of my project-based learning j
     # Using npm (for Node.js projects)
     npm install
 
-    # Or using pip (for Python projects)
-    pip install -r requirements.txt
-    ```
-
 3. **Run the Project**
     ```sh
     # Example for Node.js
