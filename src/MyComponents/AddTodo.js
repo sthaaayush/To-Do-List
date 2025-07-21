@@ -10,6 +10,8 @@ export const AddTodo = ({ addTodo }) => {
             alert("Title or Description cannot be blank");
         }
         addTodo(title, desc);
+        setDesc("");
+        setTitle("");
     };
     return (
         <div className="container my-3">

@@ -8,8 +8,13 @@ export default function Todos( { todos, onDelete }) {
       <h3  className="my-3" >Todos List</h3> 
       {/* Using map to iterate over todos and render Todoitem for each todo */}
       { todos.map((todo) => {
-        return <Todoitem todo = {todo} key={todo.sno} OnDelete={onDelete}/>;
+        return (
+          <>
+            <Todoitem todo={todo} key={todo.sno} OnDelete={onDelete} />
+            <hr />
+          </>
+        );
       })}
     </div>
-  )
+  );
 }
