@@ -1,10 +1,11 @@
-import React from "react";
+import PropTypes from 'prop-types'
 
-export default function Header(props) {
+export default function Header({title = "Your Title", searchBar}) {
+  // Using destructuring to extract title and searchBar props
   return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">{props.title}</a>
+          <a className="navbar-brand" href="#">{title}</a>
           <button
             className="navbar-toggler"
             type="button"
@@ -30,7 +31,7 @@ export default function Header(props) {
               </li>
             </ul>
 
-            { props.searchBar ? <form className="d-flex" role="search">
+            {searchBar ? <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -45,4 +46,8 @@ export default function Header(props) {
         </div>
       </nav>
   );
+}
+
+Header.propTypes = {
+    title : PropTypes.string
 }
