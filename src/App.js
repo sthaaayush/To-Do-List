@@ -2,9 +2,12 @@ import './App.css';
 import Header from './MyComponents/Header';
 import Todos from './MyComponents/Todos';
 import Footer from './MyComponents/Footer';
-import { useState } from 'react';
+import {useState } from 'react';
+import {AddTodo} from './MyComponents/AddTodo';
 
 function App() {
+
+  // Function to handle deletion of a todo item
   const onDelete = (todo) =>{
     // /* Deleting this way in react does not work
     // let index = todos.indexOf(todo);
@@ -18,6 +21,19 @@ function App() {
     alert("Task " + todo.sno + " has been deleted");
   }
 
+  // Function to add a new todo item
+  const addTodo = (title, desc) => {
+    console.log("Adding a new todo " + title + " " + desc);
+    const sno = todos.length + 1; 
+    const myTodo = {
+      sno: sno,
+      title: title,
+      desc: desc
+    }
+    setTodos([todos, myTodo]);
+  };
+
+  // Initial state for todos
     const [todos, setTodos] = useState([
     {
       sno: 1,
@@ -46,9 +62,11 @@ function App() {
     }
   ]);
 
+  // Render the main application
   return (
     <>
       <Header title='My Todo List' searchBar={false}/>
+      <AddTodo addTodo={addTodo}/>
       <Todos todos={todos} onDelete={onDelete}/>
       <Footer/>
     </>
