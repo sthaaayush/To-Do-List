@@ -4,10 +4,11 @@ import Todos from './MyComponents/Todos';
 import Footer from './MyComponents/Footer';
 import { useState, useEffect } from 'react';
 import { AddTodo } from './MyComponents/AddTodo';
+import About from './MyComponents/About';
 
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route
 } from "react-router-dom";
 
@@ -57,26 +58,28 @@ function App() {
   // Render the main application
   return (
     <Router>
+      {/* Render Header component */}
       <Header title='My Todo List' searchBar={false} />
-      <Switch>
-        <Route exact path="/" render={() => {
-          return (
-            <div className="container">
-              <div className="row">
-                {/* Todos Column */}
-                <div className="col">
-                  <Todos todos={todos} onDelete={onDelete} />
-                </div>
-                {/* AddTodo Column */}
-                <div className="col">
-                  <AddTodo addTodo={addTodo} />
-                </div>
-              </div>
+      <Routes>
+        {/* Render Todos and AddTodo components */}
+        <Route exact path="/" element={
+        <div className="container">
+          <div className="row">
+            {/* Todos Column */}
+            <div className="col">
+              <Todos todos={todos} onDelete={onDelete} />
             </div>
-          )
-        }}>
-        </Route>
-      </Switch>
+            {/* AddTodo Column */}
+            <div className="col">
+              <AddTodo addTodo={addTodo} />
+            </div>
+          </div>
+        </div>}/>
+
+        {/*Render About Page */}
+        <Route exact path="/about" element={<About />} />
+      </Routes>
+      {/* Render Footer component */}
       <Footer />
     </Router>
   );

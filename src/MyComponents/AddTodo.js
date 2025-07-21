@@ -21,7 +21,7 @@ export const AddTodo = ({ addTodo }) => {
 
                 {/* Title field */}
                 <div className="mb-3">
-                    <label htmlFor="Title" className="form-label">
+                    <label htmlFor="Title" className="form-label"> {/* Used htmlFor instead of for */}
                         Todo Title
                     </label>
                     <input
