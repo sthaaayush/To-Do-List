@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Todos = () => {
+const Todo = () => {
   return (
     <div>
-      todo works too
+      todo insides
     </div>
   )
 }
 
-export default Todos
+export default Todo
