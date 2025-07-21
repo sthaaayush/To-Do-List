@@ -1,11 +1,11 @@
-import React from "react";
-
 export default function Footer() {
   let footerStyle = {
-    position: "relative",
-    top: "5vh",
+    position: "fixed",
+    left: 0,
+    bottom: 0,
     width: "100%",
-    marginTop: "2em"
+    marginTop: "5em",
+    zIndex: 1000
   }
   return (
     <footer className="bg-dark text-light py-3 text-center " style={footerStyle}>
